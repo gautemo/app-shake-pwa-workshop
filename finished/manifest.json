@@ -1,0 +1,11 @@
+{
+  "name": "App Shake",
+  "icons": [
+    {
+      "src": "src/images/appicon.svg",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "fullscreen"
+}
