@@ -15,6 +15,24 @@ Create a folder `public` and create a service worker file. In `main.tsx` you can
 
 Resources [web.dev](https://developers.google.com/web/fundamentals/primers/service-workers) and [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers).
 
+TODO - code
+```js
+self.addEventListener('install', function (event) {
+  console.log('installed', event);
+});
+
+self.addEventListener('activate', function (event) {
+  console.log('activated', event);
+});
+
+self.addEventListener('fetch', function (event) {
+  console.log('Handling fetch event for', event.request.url);
+});
+
+// export default { };
+// declare const self: ServiceWorkerGlobalScope;
+```
+
 ## HTTPS
 A PWA needs to be hosted on HTTPS to be installable. Note that `localhost` is an exception that is accepted during local development.
 
