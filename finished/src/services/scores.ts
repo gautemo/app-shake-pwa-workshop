@@ -3,7 +3,10 @@ import { Score } from '../types'
 const getScores = async (): Promise<{ data: Score[], error?: undefined } | { data?: undefined, error: Error }> => {
   try {
     const response = await fetch('http://localhost:8080/scores');
-    return { data: await response.json() };
+    if(response.ok){
+      return { data: await response.json() };
+    }
+    return { error: new Error('Could not fetch leaderboard') }
   } catch (error) {
     return { error }
   }

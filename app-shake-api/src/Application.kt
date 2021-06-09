@@ -40,7 +40,7 @@ fun Application.module(testing: Boolean = false) {
             }
             leaderboard.sortByDescending { it.points }
             if(leaderboard.size > 3) leaderboard.removeLast()
-            call.respond(200)
+            call.respond(HttpStatusCode.OK)
         }
     }
 }

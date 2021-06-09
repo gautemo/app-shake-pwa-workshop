@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useIsOnline } from '../hooks/useIsOnline';
 import { getScores } from '../services/scores';
 import { Score } from '../types';
+import { Alert } from './Alert';
+import { Loader } from './icons/Loader';
+import { Refresh } from './icons/Refresh';
+import styles from '../style/Leaderboard.module.css';
 
 const Leaderboard = () => {
   const [scores, setScores] = useState<{ data: Score[], loading: boolean, error?: Error }>({ data: [], loading: false });
@@ -21,28 +25,39 @@ const Leaderboard = () => {
     if (isOnline) get();
   }, [isOnline])
 
-  return (
-    <>
-      { isOnline &&
-        <>
-          { scores.loading && <p>loading...</p>}
-          { scores.error && <p>Error: {scores.error.message}</p>}
-          <ol>
-            {
-              scores.data.map(score =>
-                <li key={score.name}>
-                  <span>{score.name}</span>:
+  const Content = () => {
+    if (!isOnline) {
+      return <Alert type="warning" message="No internet" />
+    }
+    if (scores.loading) {
+      return <Loader />
+    }
+    if (scores.error) {
+      return <Alert type="error" message={scores.error.message} />
+    }
+    return (
+      <ol className={styles.list}>
+        {
+          scores.data.map((score, i) =>
+            <li key={score.name}>
+              <span className={styles.name}>{i+1}. {score.name}</span>
               <span>{score.points}</span>
-                </li>
-              )
-            }
-          </ol>
-        </>
-      }
-      { !isOnline &&
-        <div>No internet</div>
-      }
-    </>
+            </li>
+          )
+        }
+      </ol>
+    )
+  }
+
+
+  return (
+    <section>
+      <div className={styles.top}>
+        <h1>Leaderboard 🏆</h1>
+        <Refresh onClick={get} />
+      </div>
+      <Content />
+    </section>
   )
 }
 
