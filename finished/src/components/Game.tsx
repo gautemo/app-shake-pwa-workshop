@@ -27,8 +27,13 @@ const Game = () => {
     }
   }, [timeLeft]);
 
-  const { max, resetMax } = useAccelerometer();
+  const { max, resetMax, checkPermission } = useAccelerometer();
   const [lastScore, setLastScore] = useState(-1);
+
+  const start = async () => {
+    await checkPermission();
+    setTimeLeft(GAMETIME);
+  }
 
   return (
     <section className={styles.game}>
@@ -39,7 +44,7 @@ const Game = () => {
             <input id="name" type="text" onChange={e => setUsername(e.target.value)} value={username ?? ''} />
           </div>
           { lastScore !== -1 && <p>You got {lastScore} points!</p>}
-          <button onClick={() => setTimeLeft(GAMETIME)} className={styles.start}>START</button>
+          <button onClick={start} className={styles.start}>START</button>
         </>
       }
       { timeLeft > 0 &&

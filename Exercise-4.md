@@ -10,4 +10,17 @@ Check out [What Web Can Do Today](https://whatwebcando.today/) for a list of fea
 Go to `useAccelerometer.ts` and implement an event listener for `devicemotion` 
 and call `setIfMax` with the summing up the absolute values of `x`, `y` and `z`.
 
+```ts
+if (typeof DeviceMotionEvent.requestPermission === 'function') {
+  DeviceMotionEvent.requestPermission()
+    .then(response => {
+      console.log(response)
+      if (response == 'granted') {
+
+      }
+    })
+    .catch(e => alert(e))
+}
+```
+
 ## Push Notification

@@ -13,7 +13,7 @@ const isInStandaloneMode = () => window.navigator.standalone;
 
 const ControlPanel = () => {
   const [showInstall, setShowInstall] = useState(isIos() && !isInStandaloneMode());
-  const [showInstallIOSInfo, setShowInstallIOSInfo] = useState(true);
+  const [showInstallIOSInfo, setShowInstallIOSInfo] = useState(false);
 
   useEffect(() => {
     window.addEventListener('beforeinstallprompt', (e) => {
