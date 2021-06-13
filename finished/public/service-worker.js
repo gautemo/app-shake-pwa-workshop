@@ -22,3 +22,17 @@ registerRoute(
     ],
   })
 );
+
+self.addEventListener('push', event => {
+  let data = event.data.json();
+  self.registration.showNotification(`New ${data.place}. place!`, {
+    body: `${data.score.name} got ${data.score.points} points`,
+    icon: notificationIcons[data.place],
+  });
+});
+
+const notificationIcons = {
+  1: 'assets/1st.png',
+  2: 'assets/2nd.png',
+  3: 'assets/3rd.png',
+}

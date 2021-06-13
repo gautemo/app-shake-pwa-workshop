@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../style/ControlPanel.module.css';
 import iosInstallInfo from '../images/iosInstallInfo.png';
 import { Alert } from './Alert';
+import { hasSubscribed, subscribe } from '../services/notifications';
 
 let deferredPrompt: BeforeInstallPromptEvent | null = null;
 
@@ -35,11 +36,18 @@ const ControlPanel = () => {
     }
   }
 
+  const [isSubscribed, setIsSubscribed] = useState(false);
+  useEffect(() => {
+    hasSubscribed().then(res => setIsSubscribed(res));
+  }, []);
+  const subscribeClick = () => {
+    subscribe();
+    setIsSubscribed(true);
+  }
+
   return (
     <section className={styles.panel}>
-      <button>
-        Notify me
-      </button>
+      { !isSubscribed && <button onClick={subscribeClick}>Notify me</button> }
       { showInstall && <button onClick={install}>Install</button> }
       { showInstallIOSInfo && 
         <Alert 
