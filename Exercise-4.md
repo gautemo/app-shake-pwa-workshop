@@ -26,3 +26,5 @@ if (typeof DeviceMotionEvent.requestPermission === 'function') {
 ```
 
 ## Push Notification
+
+On push notification received, see options [MDN](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification).

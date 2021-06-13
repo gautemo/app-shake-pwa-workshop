@@ -10,7 +10,7 @@ const subscribe = async () => {
     const sw = await navigator.serviceWorker.ready;
     const subscription = await sw.pushManager.subscribe({
       userVisibleOnly: true,
-      applicationServerKey: urlB64ToUint8Array('BEzSlAoTTZ8jY41D4IS26iNN6gnJ6Cc6DTnkaEh3b-JGS6MrxSvRWp5NGuY_hy8Yd9N4-i_TgxCqxlGk9Sgvquk')
+      applicationServerKey: urlB64ToUint8Array(import.meta.env.VITE_PUSH_KEY)
     });
     fetch('http://localhost:8080/subscribe', {
       method: 'POST',

@@ -10,13 +10,13 @@ import nl.martijndwars.webpush.Utils
 import org.bouncycastle.jce.provider.BouncyCastleProvider
 import java.security.Security
 
-class PushNotificationService {
+class PushNotificationService(publicKey: String, privateKey: String) {
     private val subscriptions = mutableListOf<Subscription>()
     private val pushService = PushService()
     init {
         Security.addProvider(BouncyCastleProvider())
-        pushService.publicKey = Utils.loadPublicKey("BEzSlAoTTZ8jY41D4IS26iNN6gnJ6Cc6DTnkaEh3b-JGS6MrxSvRWp5NGuY_hy8Yd9N4-i_TgxCqxlGk9Sgvquk")
-        pushService.privateKey = Utils.loadPrivateKey("5IS3p1nDq95sbkvRQHwrpELpA45C3g1zPEIAybCYrPo")
+        pushService.publicKey = Utils.loadPublicKey(publicKey)
+        pushService.privateKey = Utils.loadPrivateKey(privateKey)
     }
 
     fun addSubscription(subscription: Subscription) = subscriptions.add(subscription)

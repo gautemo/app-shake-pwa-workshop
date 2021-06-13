@@ -25,7 +25,10 @@ fun Application.module(testing: Boolean = false) {
         })
     }
 
-    val pushNotiicationService = PushNotificationService()
+    val pushNotiicationService = PushNotificationService(
+        environment.config.property("ktor.pushService.publicKey").getString(),
+        environment.config.property("ktor.pushService.privateKey").getString()
+    )
     val leaderboard = mutableListOf<Score>()
 
     routing {
@@ -49,6 +52,10 @@ fun Application.module(testing: Boolean = false) {
                 if(leaderboard.size > 3) leaderboard.removeLast()
                 pushNotiicationService.sendNotification(Message(place, score))
             }
+            call.respond(HttpStatusCode.OK)
+        }
+        get("/scores/reset"){
+            leaderboard.clear()
             call.respond(HttpStatusCode.OK)
         }
         post("/subscribe"){
