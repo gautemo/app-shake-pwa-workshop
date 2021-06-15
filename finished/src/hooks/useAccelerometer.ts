@@ -11,13 +11,17 @@ const reducer = (current: number, value: number | 'reset') => {
   return Math.max(current, value);
 }
 
+const getScore = (x: number, y: number, z: number) => {
+  return Math.ceil(Math.abs(x) + Math.abs(y) + Math.abs(z));
+}
+
 const useAccelerometer = () => {
   const [max, setIfMax] = useReducer(reducer, 0);
   
   useEffect(() => {
     window.addEventListener('devicemotion', ({acceleration}) => {
       const { x, y, z } = acceleration ?? {};
-      setIfMax(Math.ceil(Math.abs(x ?? 0) + Math.abs(y ?? 0) + Math.abs(z ?? 0)));
+      setIfMax(getScore(x ?? 0, y ?? 0, z ?? 0));
     });
   }, []);
   
