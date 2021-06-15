@@ -5,7 +5,9 @@ To make a PWA installable we need a manifest and a service worker and host the w
 ## Manifest
 
 Create `manifest.json` in root folder and import in `index.html` with `<link rel="manifest" href="manifest.json">`.
-Manifest must contain `name`/`short_name`, `icons`, `start_url`, `display`
+Manifest must contain `name`/`short_name`, `icons`, `start_url`, `display`.
+
+Check out this [Web App Manifest Generator](https://app-manifest.firebaseapp.com/).
 
 Resources [web.dev](https://web.dev/add-manifest/) and [MDN](https://developer.mozilla.org/en-US/docs/Web/Manifest).
 

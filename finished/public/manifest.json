@@ -1,0 +1,18 @@
+{
+  "name": "App Shake",
+  "icons": [
+    {
+      "src": "assets/app-shake-icon.png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/app-shake-icon.svg",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#9163BF",
+  "theme_color": "#D955B5"
+}
