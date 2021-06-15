@@ -12,7 +12,7 @@ const subscribe = async () => {
       userVisibleOnly: true,
       applicationServerKey: urlB64ToUint8Array(import.meta.env.VITE_PUSH_KEY)
     });
-    fetch('http://localhost:8080/subscribe', {
+    fetch(`${import.meta.env.VITE_SERVER_URL}/subscribe`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
