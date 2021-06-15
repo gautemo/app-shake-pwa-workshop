@@ -17,7 +17,7 @@ const useAccelerometer = () => {
   useEffect(() => {
     window.addEventListener('devicemotion', ({acceleration}) => {
       const { x, y, z } = acceleration ?? {};
-      setIfMax(Math.abs(x ?? 0) + Math.abs(y ?? 0) + Math.abs(z ?? 0));
+      setIfMax(Math.ceil(Math.abs(x ?? 0) + Math.abs(y ?? 0) + Math.abs(z ?? 0)));
     });
   }, []);
   
