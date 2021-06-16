@@ -41,3 +41,6 @@ The application is build into a docker container and hosted on cloud run in Goog
 2. `docker build -t app-shake-api . --tag gcr.io/app-shake-api/app-shake-pwa-workshop/cloudservice:latest --platform linux/amd64`
 3. `docker push gcr.io/app-shake-api/app-shake-pwa-workshop/cloudservice:latest`
 4. `gcloud run deploy cloudservice --image gcr.io/app-shake-api/app-shake-pwa-workshop/cloudservice:latest --port 8080`
+
+## Dependencies
+[WebPush](https://github.com/web-push-libs/webpush-java) library is used to authenticate the notifications. They also have other packages for other languages.
