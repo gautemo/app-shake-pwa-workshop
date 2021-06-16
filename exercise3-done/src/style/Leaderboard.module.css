@@ -1,0 +1,37 @@
+.top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 1rem 0 1rem;
+}
+
+.top h1{
+  font-size: 1rem;
+}
+
+.list{
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+
+.list li{
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 0 0.5rem 1rem;
+}
+
+.list li:nth-child(1){
+  background: #9163bfca;
+}
+
+.list li:nth-child(2){
+  background: #9163bf83;
+}
+
+.list li:nth-child(3){
+  background: #9163bf50;
+}
+
+.name{
+  min-width: 120px;
+}

@@ -1,0 +1,13 @@
+.panel{
+  display: flex;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.panel button{
+  flex: 1;
+}
+
+.iosInfo{
+  max-width: 70vw;
+}

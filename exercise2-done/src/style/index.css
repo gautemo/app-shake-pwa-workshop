@@ -1,0 +1,23 @@
+html, body, #root, main{
+  height: 100%;
+}
+
+body{
+  margin: 0;
+  background: #9AAAD9;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 1.1em;
+}
+
+button,input{
+  font-family: inherit;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+}
+
+section{
+  margin: 1rem 0;
+}
