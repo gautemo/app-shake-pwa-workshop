@@ -321,5 +321,7 @@ class: text-center
 # Exercise 4 - Capable
 
 ## Accelerometer
+Let's play
 
 ## Push notifications
+If you want, only for Chrome
