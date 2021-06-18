@@ -154,6 +154,23 @@ Good resources: [What Web Can do Today?](https://whatwebcando.today/), [Can I us
 </style>
 
 ---
+layout: center
+class: text-center
+---
+
+# App store
+
+<div class="flex">
+  <flat-ui-google class="text-8xl"/>
+  <fluent-store-microsoft-20-regular class="text-8xl"/>
+  <div style="position: relative;" v-click>
+    <flat-ui-app-store class="text-8xl" style="position: absolute; inset: 0;"/>
+    <ic-baseline-do-not-disturb-alt class="text-8xl" style="position: absolute; inset: 0; color: red;"/>
+  </div>
+</div>
+
+
+---
 
 # Why it's not ready
 
@@ -286,3 +303,23 @@ class: text-center
   <mdi-arrow-right-bold-box class="text-8xl m-8"/>
   <img width="400" src="assets/leaderboard_offline.png" alt="offline message" style="object-fit: contain;">
 </div>
+
+---
+
+# Exercise 3 - Promoting PWA installation
+
+## Goal
+
+<div class="flex justify-around">
+  <img width="180" src="assets/install_button.png" alt="install button" style="object-fit: contain;">
+  <img width="180" src="assets/install_chrome.png" alt="install chrome" style="object-fit: contain;">
+  <img width="180" src="assets/install_ios.png" alt="install ios" style="object-fit: contain;">
+</div>
+
+---
+
+# Exercise 4 - Capable
+
+## Accelerometer
+
+## Push notifications
